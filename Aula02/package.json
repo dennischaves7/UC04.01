@@ -1,0 +1,24 @@
+{
+  "name": "aula02",
+  "version": "1.0.0",
+  "description": "Aula 02",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "aula",
+    "programa"
+  ],
+  "author": "Dennis Barbosa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
