@@ -1,11 +1,13 @@
 import express from "express";
 import "dotenv/config";
+import cookieParser from "cookie-parser";
 import UsuarioRoutes from "./src/routes/UsuarioRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
+app.use(cookieParser());
 app.use("/usuarios", UsuarioRoutes);
 
 app.get("/", (req, res) =>{

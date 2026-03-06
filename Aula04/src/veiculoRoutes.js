@@ -10,4 +10,4 @@ router.get('/marca/:marca', VeiculoController.obterPorMarca);
 router.put('/:id', VeiculoController.atualizarVeiculo);
 router.delete('/:id', VeiculoController.deletarVeiculo);
 
-export default router; 
+export default router;  

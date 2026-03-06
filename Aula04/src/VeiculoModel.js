@@ -33,6 +33,7 @@ export class VeiculoModel {
     }
     return null;
   }
+  
   static deletarVeiculo(id) {
     const index = veiculos.findIndex(v => v.id === parseInt(id));
     if (index !== -1) {

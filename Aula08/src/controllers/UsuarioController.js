@@ -62,8 +62,10 @@ export class UsuarioController {
             process.env.JWT_SECRET,
             {expiresIn: "1h"}
         );
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "strict" });
         res.status(200).json({ mensagem: "Login realizado com sucesso", usuario: usuario.nome, token: token });
     });
+    
         } catch (error) {
             res.status(500).json({ erro: "Erro ao realizar login", detalhes: error.message });
         }

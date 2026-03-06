@@ -2,42 +2,44 @@ import { cursos } from "../../data/cursos.data.js";
 import { alunos } from "../../data/alunos.data.js";
 
 export class CursoModel {
-   static listarCursos() {
-       return cursos;
-   }
- static buscarCursoPorId(id) {
-       return cursos.find(curso => curso.id === id);
-   }
 
-   static criarCurso(nome) {
-       const id = cursos.length + 1;
-       const curso = { id, ...nome };
-       cursos.push(curso);
-       return curso;
-   }
+    static listarCursos() {
+        return cursos;
+    }
+    static buscarCursoId(id) {
+        return cursos.find(c => c.id === parseInt(id));
+    }
 
-   static atualizarCurso(id, dadosAtualizados) {
-       const cursoIndex = cursos.findIndex(curso => curso.id === id);
-         if (cursoIndex === -1) {
-              return false;
-         }
-         cursos ={
-            id: id,
+    static criarCurso(nome) {
+        const novoCurso =
+        {
+            id: cursos.length + 1,
             nome: nome
-         }
-         return cursos[cursoIndex];
-}
-
-    static deletarCurso(id) {
-        const cursoIndex = cursos.findIndex(curso => curso.id === id);
-        if (cursoIndex === -1) {
+        }
+        cursos.push(novoCurso);
+        return novoCurso;
+    }
+    static atualizarCurso(id, nome) {
+        const index = cursos.findIndex(c => c.id === parseInt(id));
+        if (index === -1) {
             return false;
         }
-        cursos.splice(cursoIndex, 1);
+        cursos[index] = {
+            id: id,
+            nome: nome
+        };
+        return cursos[index];
+    }
+    static deletarCurso(id) {
+        const index = cursos.findIndex(c => c.id === parseInt(id));
+        if (index === -1) {
+            return false;
+        }
+        cursos.splice(index, 1);
         return true;
-}
-static listarAlunosPorCurso(idCurso) {
-    return alunos.filter(aluno => aluno.curso === parseInt(idCurso));
+    }
+    static listarAlunosPorCurso(idCurso){
+        return alunos.filter(a => a.curso === parseInt(idCurso));
+    }
 
-}}
-  
+}

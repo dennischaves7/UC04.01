@@ -18,7 +18,7 @@ export class VeiculoController {
     } catch (error) {
       res.status(500).json({ message: "Erro ao listar veiculos.", error: error.message });
     }
-  }
+  } 
   static obterVeiculoPorId(req, res) {
     try {
       const id = req.params.id;
